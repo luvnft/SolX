@@ -6,21 +6,21 @@ const PromoBar: React.FC = () => {
       name: "Get Your Spot !",
       imgSrc:
         "https://learn.g2.com/hs-fs/hubfs/plan%20gif%20marketing%20strategy.gif?width=500&name=plan%20gif%20marketing%20strategy.gif",
-      link: "https://twitter.com/Abblecoin",
+      link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
     {
       name: "Get Your Spot !",
       imgSrc:
         "https://pbs.twimg.com/profile_images/1681777814926766080/2NgQaPbr_400x400.jpg",
-      link: "https://twitter.com/KeroNFTs",
+      link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
     {
       name: "Get Your Spot !",
       imgSrc:
         "https://www.ship.ph/wp-content/uploads/2017/04/Landscape-GIF-4.gif",
-      link: "https://twitter.com/SMLE_SOL",
+      link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
   ];
