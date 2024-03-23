@@ -33,10 +33,7 @@ const InfoPage: React.FC = () => {
         <p className="mb-6">
           Utilizing SolX is straightforward. Users can access the platform using
           their Solana wallet, enabling them to post, like, and interact with
-          content seamlessly on the Solana blockchain. Users are required to
-          hold{" "}
-          <span className="text-purple-500">at least 1,000 SOLX tokens</span> to
-          be eligible to tweet and build up their ranking on SolX.
+          content seamlessly on the Solana blockchain.
         </p>
       </section>
 
