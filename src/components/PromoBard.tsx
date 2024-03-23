@@ -3,25 +3,25 @@ import React from "react";
 const PromoBar: React.FC = () => {
   const cards = [
     {
-      name: "Abble",
+      name: "Get Your Spot !",
       imgSrc:
-        "https://pbs.twimg.com/profile_images/1766608904153141248/lM8keUnD_400x400.jpg",
-      link: "https://twitter.com/Abblecoin",
-      linkTitle: "Twitter",
+        "https://i.ibb.co/KrRCZ2k/logotest6.png",
+      link: "https://t.me/Wickeths",
+      linkTitle: "SolX",
+    },
+   {
+      name: "Get Your Spot !",
+      imgSrc:
+        "https://learn.g2.com/hs-fs/hubfs/plan%20gif%20marketing%20strategy.gif?width=500&name=plan%20gif%20marketing%20strategy.gif",
+      link: "https://t.me/Wickeths",
+      linkTitle: "SolX",
     },
     {
-      name: "Kero 🐸🦇🔊",
+      name: "Get Your Spot !",
       imgSrc:
-        "https://pbs.twimg.com/profile_images/1681777814926766080/2NgQaPbr_400x400.jpg",
-      link: "https://twitter.com/KeroNFTs",
-      linkTitle: "Twitter",
-    },
-    {
-      name: "SMLE 🙂",
-      imgSrc:
-        "https://pbs.twimg.com/profile_images/1768711359309438976/djkqnGb0_400x400.jpg",
-      link: "https://twitter.com/SMLE_SOL",
-      linkTitle: "Twitter",
+        "https://i.ibb.co/KrRCZ2k/logotest6.png",
+      link: "https://t.me/Wickeths",
+      linkTitle: "SolX",
     },
   ];
 
