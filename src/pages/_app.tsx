@@ -31,23 +31,23 @@ function MyApp({ Component, pageProps }: AppProps) {
       <WalletProvider autoConnect wallets={[]}>
         <WalletModalProvider>
           <DefaultSeo
-            title="SOLX"
-            description="X Powered By SOL"
-            canonical="https://solx.vercel.app"
+            title="MEMESOL"
+            description="Social Solana memecoin media platform."
+            canonical="https://memesol.luvnft.com"
             openGraph={{
               type: "website",
               locale: "en_US",
-              url: "https://solx.vercel.app",
-              site_name: "SOLX",
+              url: "https://memesol.luvnft.com",
+              site_name: "MEMESOL",
               images: [
                 {
-                  url: "https://solx.vercel.app/logo.png",
+                  url: "https://memesol.luvnft.com/logo.png",
                 },
               ],
             }}
             twitter={{
-              handle: "@SOLX",
-              site: "https://solx.vercel.app",
+              handle: "@LUVNFT",
+              site: "https://memesol.luvnft.com",
               cardType: "summary_large_image",
             }}
           />
