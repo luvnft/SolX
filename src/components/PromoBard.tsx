@@ -11,13 +11,13 @@ const PromoBar: React.FC = () => {
     {
       name: "Get Your Spot !",
       imgSrc: "https://pbs.twimg.com/profile_images/1681777814926766080/2NgQaPbr_400x400.jpg",
-      link: "https://twitter.com/KeroNFTs",
+      link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
     {
       name: "Get Your Spot !",
       imgSrc: "https://www.ship.ph/wp-content/uploads/2017/04/Landscape-GIF-4.gif",
-      link: "https://twitter.com/SMLE_SOL",
+      link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
   ];
