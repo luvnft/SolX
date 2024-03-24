@@ -55,7 +55,7 @@ const Profile: React.FC = () => {
       <header className="text-2xl font-bold pb-4 px-6 border-b pt-4">
         {walletAddress?.slice(0, 6)}...{walletAddress?.slice(-6)}
       </header>
-      <TweetForm onTweetPosted={[]} />
+      <TweetForm />
       <TweetList
         tweets={tweets}
         loading={loading}
