@@ -5,19 +5,19 @@ const PromoBar: React.FC = () => {
     {
       name: "Get Your Spot !",
       imgSrc: "https://s12.gifyu.com/images/SVTTI.gif",
-      link: "https://t.me/Wickeths",
+      link: "https://t.me/solx_support",
       linkTitle: "SolX",
     },
     {
       name: "Get Your Spot !",
       imgSrc: "https://s12.gifyu.com/images/SVTTI.gif",
-      link: "https://t.me/Wickeths",
+      link: "https://t.me/solx_support",
       linkTitle: "SolX",
     },
     {
       name: "Get Your Spot !",
       imgSrc: "https://s12.gifyu.com/images/SVTTI.gif",
-      link: "https://t.me/Wickeths",
+      link: "https://t.me/solx_support",
       linkTitle: "SolX",
     },
   ];
@@ -44,7 +44,7 @@ const PromoBar: React.FC = () => {
       ))}
       {/* Centered Promo Inquiry Button */}
       <div className="mt-4 flex justify-center w-full">
-        <a href="https://t.me/Wickeths" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/solx_support" target="_blank" rel="noopener noreferrer">
           <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full">
             Ads Inquiry
           </button>
