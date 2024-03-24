@@ -54,14 +54,6 @@ const TheSidebar: React.FC = () => {
               <div className="text-xl hidden md:block">Users</div>
             </div>
           </Link>
-          <Link href="/info" passHref>
-            <div
-              className={`gap-2 flex flex-row hover:bg-purple-500/30 transition-all duration-300 p-2 rounded-lg justify-start items-center ${isActive("/info")}`}
-            >
-              <FaInfoCircle size={24} />
-              <div className="text-xl hidden md:block">Info</div>
-            </div>
-          </Link>
           {connected && publicKey && (
             <Link href={`/profile/${publicKey.toBase58()}`} passHref>
               <div
@@ -73,6 +65,14 @@ const TheSidebar: React.FC = () => {
             </Link>
           )}
         </div>
+        <Link href="/info" passHref>
+            <div
+              className={`gap-2 flex flex-row hover:bg-purple-500/30 transition-all duration-300 p-2 rounded-lg justify-start items-center ${isActive("/info")}`}
+            >
+              <FaInfoCircle size={24} />
+              <div className="text-xl hidden md:block">Info</div>
+            </div>
+        </Link>
         <div className="fixed bottom-8 right-8 md:static w-48 md:w-full">
           <WalletMultiButton />
         </div>
