@@ -62,8 +62,6 @@ const TheSidebar: React.FC = () => {
               <div className="text-xl hidden md:block">Info</div>
             </div>
           </Link>
-          {/* Additional Sidebar Items */}
-          <ModeToggle />
           {connected && publicKey && (
             <Link href={`/profile/${publicKey.toBase58()}`} passHref>
               <div
@@ -78,6 +76,8 @@ const TheSidebar: React.FC = () => {
         <div className="fixed bottom-8 right-8 md:static w-48 md:w-full">
           <WalletMultiButton />
         </div>
+        {/* Additional Sidebar Items */}
+        <ModeToggle />
       </aside>
 
       {/* Mobile Navigation */}
