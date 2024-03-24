@@ -88,7 +88,7 @@ const PromoBar: React.FC = () => {
             <img
               src={card.imgSrc}
               alt={`Ad Spot ${index + 1}`}
-              className="h-40 mb-2 rounded-md"
+              className="h-24 mb-2 rounded-md"
             />
             <h3 className="text-xl font-bold mb-2">{card.name}</h3>
             <a href={card.link} target="_blank" rel="noopener noreferrer">
