@@ -1,6 +1,3 @@
-update index.tsx
-
-```tsx
 // src/pages/index.tsx
 import React, { useCallback, useEffect, useState } from "react";
 
