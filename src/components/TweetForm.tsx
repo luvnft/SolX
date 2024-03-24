@@ -5,15 +5,21 @@ import React, { useRef, useState } from "react";
 import { useAutoresizeTextarea, useSlug } from "../hooks";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 
+import { FC } from "react";
 import idl from "../idl/solana_twitter.json";
 import { toast } from "sonner";
+import { useCallback } from "react";
 
 const programID = new PublicKey(process.env.NEXT_PUBLIC_PROGRAM_ID || "");
 const statePublicKey = new PublicKey(
   process.env.NEXT_PUBLIC_STATE_PUBLIC_KEY || "",
 );
 
-const TweetForm = () => {
+interface TweetFormProps {
+  onTweetPosted: () => void;
+}
+
+const TweetForm: FC<TweetFormProps> = ({ onTweetPosted }: TweetFormProps) => {
   const wallet = useWallet();
   const { connection } = useConnection();
   const [content, setContent] = useState("");
@@ -25,13 +31,13 @@ const TweetForm = () => {
     characterLimit < 0
       ? "text-red-500"
       : characterLimit <= 10
-        ? "text-yellow-500"
-        : "text-gray-400";
-  const textareaRef = useRef(null);
+      ? "text-yellow-500"
+      : "text-gray-400";
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useAutoresizeTextarea(textareaRef);
 
-  const handleSendTweet = async () => {
+  const handleSendTweet = useCallback(async () => {
     if (!effectiveTopic) {
       toast.error("Please enter a topic");
       return;
@@ -52,8 +58,6 @@ const TweetForm = () => {
         preflightCommitment: "processed",
       });
       const program = new Program(idl as any, programID, provider);
-
-      // Generate a new keypair for the tweet account
       const tweetKeypair = web3.Keypair.generate();
 
       await program.rpc.tweet(effectiveTopic, content, {
@@ -67,21 +71,18 @@ const TweetForm = () => {
       });
 
       toast.success("Tweet sent successfully");
-
       setContent("");
       setTopic("");
+
+      onTweetPosted();
     } catch (error) {
       toast.error("Error sending tweet");
       console.error("Error sending tweet:", error);
     }
-  };
+  }, [content, effectiveTopic, onTweetPosted, wallet, connection]);
 
-  const canTweet =
-    content.length > 0 &&
-    wallet.publicKey &&
-    wallet.connected &&
-    content.length > 0 &&
-    effectiveTopic.length > 0;
+  const canTweet = content.length > 0 && wallet.publicKey && wallet.connected && effectiveTopic.length > 0;
+
 
   return (
     <div className="px-8 py-4 border-b">
