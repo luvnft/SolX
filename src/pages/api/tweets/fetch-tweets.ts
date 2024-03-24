@@ -1,6 +1,3 @@
-to fix the tweets order change the api/tweets/fetch-tweets.ts to this code below
-
-```tsx
 // api/tweets/fetch-tweets.ts
 import { AnchorProvider, Program, web3 } from "@project-serum/anchor";
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
