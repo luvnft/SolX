@@ -13,7 +13,7 @@ async function fetchTweets(req: NextApiRequest, res: NextApiResponse) {
   try {
     const {
       page = 1,
-      limit = 10,
+      limit = 1000,
       topic,
       author,
       id,
