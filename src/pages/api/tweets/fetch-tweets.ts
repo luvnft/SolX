@@ -67,4 +67,3 @@ async function fetchTweets(req: NextApiRequest, res: NextApiResponse) {
 }
 
 export default fetchTweets;
-```
