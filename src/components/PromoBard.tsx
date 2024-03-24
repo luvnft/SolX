@@ -4,19 +4,19 @@ const PromoBar: React.FC = () => {
   const cards = [
     {
       name: "Get Your Spot !",
-      imgSrc: "https://learn.g2.com/hs-fs/hubfs/plan%20gif%20marketing%20strategy.gif?width=500&name=plan%20gif%20marketing%20strategy.gif",
+      imgSrc: "https://s12.gifyu.com/images/SVTTI.gif",
       link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
     {
       name: "Get Your Spot !",
-      imgSrc: "https://pbs.twimg.com/profile_images/1681777814926766080/2NgQaPbr_400x400.jpg",
+      imgSrc: "https://s12.gifyu.com/images/SVTTI.gif",
       link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
     {
       name: "Get Your Spot !",
-      imgSrc: "https://www.ship.ph/wp-content/uploads/2017/04/Landscape-GIF-4.gif",
+      imgSrc: "https://s12.gifyu.com/images/SVTTI.gif",
       link: "https://t.me/Wickeths",
       linkTitle: "SolX",
     },
@@ -27,7 +27,7 @@ const PromoBar: React.FC = () => {
       {cards.map((card, index) => (
         <div
           key={index}
-          className="flex flex-col justify-center items-center w-80 bg-muted border border-gray-200 rounded-lg shadow-md p-2"
+          className="flex flex-col justify-center items-center w-56 bg-muted border border-gray-200 rounded-lg shadow-md p-2"
         >
           <img
             src={card.imgSrc}
@@ -46,7 +46,7 @@ const PromoBar: React.FC = () => {
       <div className="mt-4 flex justify-center w-full">
         <a href="https://t.me/Wickeths" target="_blank" rel="noopener noreferrer">
           <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-full">
-            Contact Us for Promo Inquiries
+            Ads Inquiry
           </button>
         </a>
       </div>
