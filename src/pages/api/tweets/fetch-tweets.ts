@@ -1,3 +1,4 @@
+// api/tweets/fetch-tweets.ts
 import { AnchorProvider, Program, web3 } from "@project-serum/anchor";
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -12,7 +13,7 @@ async function fetchTweets(req: NextApiRequest, res: NextApiResponse) {
   try {
     const {
       page = 1,
-      limit = 10,
+      limit = 1000,
       topic,
       author,
       id,
@@ -33,24 +34,21 @@ async function fetchTweets(req: NextApiRequest, res: NextApiResponse) {
 
     tweets = tweets.filter((tweet) => {
       const tweetAcc = tweet.account;
-
       if (id && tweetAcc.id.toString() !== String(id)) return false;
       if (topic && tweetAcc.topic !== topic) return false;
       if (author) {
         const authorPubKey = new PublicKey(author as string).toString();
         if (tweetAcc.author.toString() !== authorPubKey) return false;
       }
-      if (content && !tweetAcc.content.includes(content as string))
-        return false;
+      if (content && !tweetAcc.content.includes(content as string)) return false;
       if (likes && tweetAcc.likes !== likes) return false;
       return true;
     });
 
+    tweets.sort((a, b) => parseInt(a.account.timestamp, 16) - parseInt(b.account.timestamp, 16));
+
     const startIndex = (Number(page) - 1) * Number(limit);
-    const paginatedTweets = tweets.slice(
-      startIndex,
-      startIndex + Number(limit),
-    );
+    const paginatedTweets = tweets.slice(startIndex, startIndex + Number(limit));
 
     res.status(200).json({
       data: paginatedTweets.map((tweet) => ({

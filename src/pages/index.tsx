@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+// src/pages/index.tsx
+import React, { useCallback, useEffect, useState } from "react";
 
 import { Tweet } from "@/utils/tweetUtils";
 import TweetForm from "../components/TweetForm";
@@ -7,25 +8,19 @@ import TweetList from "../components/TweetList";
 const Home = () => {
   const [tweets, setTweets] = useState<Tweet[]>([]);
   const [loading, setLoading] = useState(false);
-  const [hasNextPage, setHasNextPage] = useState(false);
+  const [hasNextPage, setHasNextPage] = useState(true);
   const [page, setPage] = useState(1);
 
-  const fetchTweets = async (page: number) => {
+  const fetchTweets = async (newPage = 1, shouldAppend = false) => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/tweets/fetch-tweets?page=${page}&limit=10`);
+      const res = await fetch(`/api/tweets/fetch-tweets?page=${newPage}`);
       if (!res.ok) throw new Error("Failed to fetch tweets");
       const { data, total } = await res.json();
-      const newDataReversed = data.reverse();
-      const specialTweetIndex = newDataReversed.findIndex(
-        (tweet: { id: string }) => tweet.id === "00",
-      );
-      if (specialTweetIndex !== -1) {
-        const [specialTweet] = newDataReversed.splice(specialTweetIndex, 1);
-        newDataReversed.push(specialTweet);
-      }
-      setTweets((prev) => [...newDataReversed, ...prev]);
+      const processedData = data.reverse();
+      setTweets((prev: any) => (shouldAppend ? [...prev, ...processedData] : [...processedData, ...prev]));
       setHasNextPage(tweets.length < total);
+      setPage(newPage);
     } catch (error) {
       console.error("Error fetching tweets:", error);
     } finally {
@@ -35,30 +30,28 @@ const Home = () => {
 
   const handleLoadMore = () => {
     if (hasNextPage) {
-      fetchTweets(page + 1);
+      fetchTweets(page + 1, true);
     }
   };
 
-  const handleUpdateTweets = (updatedTweets: Tweet[]) => {
-    setTweets(updatedTweets);
-  };
+  const refreshTweets = useCallback(() => {
+    fetchTweets(1);
+  }, []);
 
   useEffect(() => {
-    fetchTweets(1);
+    fetchTweets();
   }, []);
 
   return (
     <div className="min-w-xl max-w-xl border-r border-l min-h-[100svh]">
-      <header className="text-2xl font-bold pb-4 px-6 border-b pt-4">
-        SOLX
-      </header>
-      <TweetForm />
+      <header className="text-2xl font-bold pb-4 px-6 border-b pt-4">SOLX</header>
+      <TweetForm onTweetPosted={refreshTweets} />
       <TweetList
         tweets={tweets}
         loading={loading}
         hasMore={hasNextPage}
         onMore={handleLoadMore}
-        onUpdateTweets={handleUpdateTweets}
+        onUpdateTweets={setTweets}
         onLike={() => {}}
         onUnlike={() => {}}
       />
